@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { X, Save, Trash2, Edit2, ShieldCheck, Tag } from 'lucide-react';
 
+const BACKEND_HOST = import.meta.env.VITE_BACKEND_HOST || 'http://localhost:5000';
+
 const AnalysisModal = ({ analysis, onClose, onUpdate, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
@@ -30,7 +32,7 @@ const AnalysisModal = ({ analysis, onClose, onUpdate, onDelete }) => {
         {/* Left Side: Image */}
         <div className="w-full md:w-1/2 bg-black flex items-center justify-center min-h-[300px]">
           <img 
-            src={`http://localhost:5000/uploads/${analysis.image}`} 
+            src={`${BACKEND_HOST}/uploads/${analysis.image}`} 
             alt={analysis.title}
             className="max-w-full max-h-[500px] object-contain"
           />

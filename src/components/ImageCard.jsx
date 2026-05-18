@@ -1,5 +1,7 @@
 import React from 'react';
 
+const BACKEND_HOST = import.meta.env.VITE_BACKEND_HOST || 'http://localhost:5000';
+
 const ImageCard = ({ analysis, onSelect }) => {
   return (
     <div 
@@ -8,7 +10,7 @@ const ImageCard = ({ analysis, onSelect }) => {
     >
       <div className="h-48 overflow-hidden bg-slate-900 flex-shrink-0 relative">
         <img 
-          src={`http://localhost:5000/uploads/${analysis.image}`} 
+          src={`${BACKEND_HOST}/uploads/${analysis.image}`} 
           alt={analysis.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
